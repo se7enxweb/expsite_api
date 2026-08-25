@@ -69,6 +69,82 @@ class expSiteApiContent
         return $this->object instanceof eZContentObject;
     }
 
+    public function hasAttribute( $name )
+    {
+        return in_array( $name, array(
+            'id', 'name', 'remoteId', 'contentTypeIdentifier', 'mainLocationId',
+            'published', 'modified', 'ownerId', 'contentInfo', 'fields'
+        ) );
+    }
+
+    public function attribute( $name )
+    {
+        switch ( $name )
+        {
+            case 'id':
+                return $this->id();
+            case 'name':
+                return $this->name();
+            case 'remoteId':
+                return $this->remoteId();
+            case 'contentTypeIdentifier':
+                return $this->contentTypeIdentifier();
+            case 'mainLocationId':
+                return $this->mainLocationId();
+            case 'published':
+                return $this->published();
+            case 'modified':
+                return $this->modified();
+            case 'ownerId':
+                return $this->ownerId();
+            case 'contentInfo':
+                return $this->contentInfo();
+            case 'fields':
+                return $this->fields();
+        }
+        return null;
+    }
+
+    protected function contentInfo()
+    {
+        if ( !$this->object )
+            return array();
+
+        $class = $this->object->attribute( 'content_class' );
+        return array(
+            'id' => $this->id(),
+            'contentTypeIdentifier' => $this->contentTypeIdentifier(),
+            'contentTypeName' => $class ? (string)$class->attribute( 'name' ) : '',
+            'publishedDate' => $this->published(),
+            'mainLocationId' => $this->mainLocationId(),
+        );
+    }
+
+    protected function fields()
+    {
+        $fields = array();
+        $dataMap = $this->dataMap();
+
+        if ( class_exists( 'sevenxThemesMediaOperators' ) )
+        {
+            $operators = new sevenxThemesMediaOperators();
+            foreach ( $dataMap as $identifier => $attr )
+            {
+                if ( $attr instanceof eZContentObjectAttribute )
+                    $fields[$identifier] = $operators->wrapField( $attr );
+            }
+        }
+        else
+        {
+            foreach ( $dataMap as $identifier => $attr )
+            {
+                $fields[$identifier] = $attr;
+            }
+        }
+
+        return $fields;
+    }
+
     public function toArray()
     {
         $data = array();

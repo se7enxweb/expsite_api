@@ -70,6 +70,40 @@ class expSiteApiLocation
         return $this->node instanceof eZContentObjectTreeNode;
     }
 
+    public function hasAttribute( $name )
+    {
+        return in_array( $name, array(
+            'id', 'contentId', 'name', 'path', 'urlAlias', 'depth',
+            'isMainLocation', 'childrenCount', 'content'
+        ) );
+    }
+
+    public function attribute( $name )
+    {
+        switch ( $name )
+        {
+            case 'id':
+                return $this->id();
+            case 'contentId':
+                return $this->contentId();
+            case 'name':
+                return $this->name();
+            case 'path':
+                return $this->path();
+            case 'urlAlias':
+                return $this->urlAlias();
+            case 'depth':
+                return $this->depth();
+            case 'isMainLocation':
+                return $this->isMainLocation();
+            case 'childrenCount':
+                return $this->childrenCount();
+            case 'content':
+                return $this->content();
+        }
+        return null;
+    }
+
     public function toArray()
     {
         $content = $this->content();
