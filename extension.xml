@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" requires="ezpublish 6.0">
-  <name>expsite_api</name>
+  <name>Exponential Site API</name>
   <summary>Exponential Site API. Replaces Netgen's Ibexa Site API with simple PHP services over the native eZ content tree. Exponential 6.</summary>
   <version>1.0.2</version>
   <copyright>7x</copyright>
