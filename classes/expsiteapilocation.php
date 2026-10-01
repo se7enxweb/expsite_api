@@ -3,7 +3,7 @@ class expSiteApiLocation
 {
     protected $node;
 
-    public function __construct( eZContentObjectTreeNode $node = null )
+    public function __construct( ?eZContentObjectTreeNode $node = null )
     {
         $this->node = $node;
     }

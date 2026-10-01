@@ -3,7 +3,7 @@ class expSiteApiContent
 {
     protected $object;
 
-    public function __construct( eZContentObject $object = null )
+    public function __construct( ?eZContentObject $object = null )
     {
         $this->object = $object;
     }
