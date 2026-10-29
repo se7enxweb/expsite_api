@@ -1,7 +1,7 @@
 <?php
 //
 // expsite_api - Exponential Site API. Replaces Netgen's Ibexa Site API with simple PHP services over the native eZ content tree. Exponential 6.
-// Copyright (C) 1998 - 2026 7x. All rights reserved.
+// Copyright (C) 1998 - 2026 Exponential Foundation and 7x. All rights reserved.
 //
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -15,7 +15,7 @@ class expsite_apiInfo
     {
         return array( 'Name' => "Exponential Site API",
                       'Version' => "1.0.5",
-                      'Copyright' => "Copyright (C) 1998 - 2026 7x. All rights reserved.",
+                      'Copyright' => "Copyright (C) 1998 - 2026 Exponential Foundation and 7x. All rights reserved.",
                       'License' => "GNU General Public License v2.0 (or any later version)",
                       'info_url' => "https://github.com/se7enxweb/expsite_api" );
     }
