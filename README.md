@@ -249,6 +249,7 @@ Documentation
 | [doc/FAQ.md](doc/FAQ.md) | Answers to the most common questions |
 | [doc/TODO.md](doc/TODO.md) | Known gaps and planned improvements |
 | [doc/SUPPORT.md](doc/SUPPORT.md) | How and where to get help |
+| [CHANGELOG.md](CHANGELOG.md) | Changes per release, from 1.0.8 on |
 | [LICENSE.md](LICENSE.md) | The complete GNU General Public License agreement |
 
 Troubleshooting
